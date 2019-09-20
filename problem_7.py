@@ -15,4 +15,4 @@ while len(primes) < 10001:
 		primes += [n]
 	n += 2
 
-print(primes[-1])	
+print(primes[-1])
