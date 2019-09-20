@@ -2,25 +2,19 @@
 
 import math
 
-def getDivisors(n) :
-	divisors = []
-	# Note that this loop runs till square root 
-	i = 1
-	while i <= math.sqrt(n): 
-		if (n % i == 0) : 
-			# If divisors are equal, get only one 
-			if (n / i == i) : 
-				divisors += [i], 
-			else : 
-				# Otherwise get both 
-				divisors += [i, n/i] 
-		i = i + 1
-	return divisors
-
-if __name__ == '__main__':
-	i = 1
-	while True:
-		if(len(getDivisors(i)) == 500):
-			break
-		i += 1
-	print(i)		
+n = 10
+x = 5
+div = {1: [1], 3: [1, 3], 6: [1, 2, 3, 6]}
+while True:
+	div[n] = []
+	for i in range(1, int(math.sqrt(n))):
+		if n % i == 0:
+			if int(n / i) == i:
+				div[n] = div[n] + [i]
+			else:
+				div[n] = div[n] + [int(n / i), i]			
+	if len(div[n]) > 500:
+		print(n)
+		break			
+	n = n + x
+	x += 1
