@@ -1,10 +1,11 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
-min_num = 100001 # lowest 6 digit palindrome
-max_num = 998001 # 999*999
-m = 997799 # max palindrome less than max_num
-
-while True:
-	n = str(m)
-	
-
+n = 0
+for a in range(999, 100, -1):
+	for b in range(a, 100, -1):
+		x = a * b
+		if x > n:
+			s = str(x)
+			if s == s[::-1]:
+				n = x
+print(n)
